@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183c32">
+  <title>Hoja Nativa | Plantas para vivir mejor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Hoja Nativa, inicio">
+      <span class="brand-mark" aria-hidden="true">h.</span>
+      <span>hoja <span class="brand-light">nativa</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#nosotros">Nuestra filosofía</a>
+    </nav>
+    <button class="cart-trigger" id="open-cart" type="button" aria-label="Abrir carrito">
+      <i data-lucide="shopping-bag" aria-hidden="true"></i>
+      <span class="cart-label">Mi carrito</span>
+      <span class="cart-count" id="cart-count" aria-live="polite">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> Un poco más cerca de lo natural</p>
+        <h1>Tu casa también<br>puede <em>florecer.</em></h1>
+        <p class="hero-description">Plantas elegidas para acompañar tus días. Encontrá la indicada para cada rincón.</p>
+        <a class="hero-link" href="#catalogo">Explorar plantas <span aria-hidden="true">↘</span></a>
+        <div class="hero-note"><span class="note-star">✳</span><span>Envíos cuidados<br>en todo el país</span></div>
+      </div>
+      <div class="hero-image-wrap">
+        <img class="hero-image" src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1400&q=85" alt="Plantas de interior junto a una ventana luminosa">
+        <div class="image-caption"><span>01 / 03</span><span>Pequeños comienzos, grandes cambios</span></div>
+        <span class="hero-sticker">cultivá<br>tu calma</span>
+      </div>
+    </section>
+
+    <section class="catalog-section" id="catalogo">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Elegidas para vos</p>
+          <h2>El catálogo <span>vivo</span></h2>
+        </div>
+        <p class="section-aside">Cada planta tiene su ritmo.<br>Encontrá el que va con el tuyo.</p>
+      </div>
+
+      <div class="catalog-tools">
+        <div class="filters" id="category-filters" role="group" aria-label="Filtrar por categoría">
+          <button class="filter-button active" type="button" data-category="Todas">Todas</button>
+          <button class="filter-button" type="button" data-category="Fáciles">Fáciles</button>
+          <button class="filter-button" type="button" data-category="Purificadoras">Purificadoras</button>
+          <button class="filter-button" type="button" data-category="Pet friendly">Pet friendly</button>
+        </div>
+        <label class="search-box">
+          <i data-lucide="search" aria-hidden="true"></i>
+          <span class="visually-hidden">Buscar plantas</span>
+          <input id="search-input" type="search" placeholder="Buscar una planta..." autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+      </div>
+
+      <div class="result-line"><span id="result-count">0 plantas</span><span class="result-decoration">—</span></div>
+      <div class="product-grid" id="product-grid" aria-live="polite"></div>
+      <p class="empty-state" id="empty-state" hidden>No encontramos plantas con esa búsqueda. Probá con otro nombre o categoría.</p>
+    </section>
+
+    <section class="manifesto" id="nosotros">
+      <span class="manifesto-mark" aria-hidden="true">✳</span>
+      <p class="eyebrow">Nuestra filosofía</p>
+      <h2>Más verde, menos apuro.</h2>
+      <p>Elegimos plantas nobles, las preparamos con cuidado y te acompañamos para que crezcan con vos.</p>
+      <a href="#catalogo">Encontrá tu próxima compañera <span aria-hidden="true">→</span></a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#inicio"><span class="brand-mark" aria-hidden="true">h.</span><span>hoja <span class="brand-light">nativa</span></span></a>
+    <span>Un rincón verde en tu día.</span>
+    <span>© 2026 Hoja Nativa</span>
+  </footer>
+
+  <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="drawer-header">
+      <div><p class="eyebrow">Tu selección</p><h2 id="cart-title">El carrito <span>verde</span></h2></div>
+      <button class="icon-button" id="close-cart" type="button" aria-label="Cerrar carrito"><i data-lucide="x"></i></button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-empty" id="cart-empty"><span aria-hidden="true">✳</span><p>Tu carrito todavía está creciendo.</p><button type="button" id="continue-shopping">Descubrir plantas</button></div>
+    <div class="cart-footer" id="cart-footer" hidden>
+      <div class="cart-total"><span>Total</span><strong id="cart-total">$ 0</strong></div>
+      <button class="checkout-button" id="checkout-button" type="button">Finalizar compra <span aria-hidden="true">↗</span></button>
+      <p class="checkout-note">El envío se calcula al coordinar la entrega.</p>
+    </div>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
